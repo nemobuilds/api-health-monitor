@@ -17,7 +17,14 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table(name = "endpoints")
+@Table(
+        name = "endpoints",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uk_endpoint_url_method",
+                columnNames = {"url", "method"}
+        )
+
+)
 @Getter
 @Setter
 @NoArgsConstructor
@@ -36,7 +43,7 @@ public class Endpoint {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String url;
 
     @Column(nullable = false)
