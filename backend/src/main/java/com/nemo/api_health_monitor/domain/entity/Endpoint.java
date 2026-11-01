@@ -61,6 +61,8 @@ public class Endpoint {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    // Todo: I think we need to put another column for LastChecked
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
