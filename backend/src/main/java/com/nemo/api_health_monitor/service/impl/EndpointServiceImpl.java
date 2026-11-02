@@ -21,7 +21,7 @@ import java.util.UUID;
 public class EndpointServiceImpl implements EndpointService {
     private final EndpointRepository endpointRepository;
     private final ResultsRepository resultsRepository;
-    private EndpointMapper endpointMapper;
+    private final EndpointMapper endpointMapper;
 
 //    Concstuctor
     public EndpointServiceImpl(EndpointRepository endpointRepository, ResultsRepository resultsRepository, EndpointMapper endpointMapper) {
