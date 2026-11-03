@@ -23,8 +23,8 @@ public class RestClientConfig {
         factory.setReadTimeout(Duration.ofSeconds(60));
 
         return builder
-                .requestFactory(factory)
-                .build();
+            .requestFactory(factory)
+            .build();
 
     }
 }

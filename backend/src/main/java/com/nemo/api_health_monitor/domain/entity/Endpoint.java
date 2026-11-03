@@ -11,6 +11,7 @@ package com.nemo.api_health_monitor.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +62,11 @@ public class Endpoint {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    // Todo: I think we need to put another column for LastChecked
+    @Column
+    private LocalDateTime lastCheckedAt;
+
+    @Column
+    private Instant nextCheckAt;
 
     @PrePersist
     protected void onCreate() {
