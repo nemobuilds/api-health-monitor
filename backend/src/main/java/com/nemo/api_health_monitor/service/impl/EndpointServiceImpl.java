@@ -88,7 +88,7 @@ public class EndpointServiceImpl implements EndpointService {
         endpoint.setMethod(request.method());
         endpoint.setIntervalSeconds(request.intervalSeconds());
         endpoint.setExpectedStatus(request.expectedStatus());
-        endpoint.setActive(request.active());
+        endpoint.setActive(request.isActive());
 
         endpoint = endpointRepository.save(endpoint);
 

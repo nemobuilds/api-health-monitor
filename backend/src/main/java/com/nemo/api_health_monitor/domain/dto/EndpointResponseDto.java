@@ -10,7 +10,7 @@ public record EndpointResponseDto(
     String method,
     int intervalSeconds,
     int expectedStatus,
-    boolean active,
+    boolean isActive,
     LocalDateTime createdAt
 ) {
 

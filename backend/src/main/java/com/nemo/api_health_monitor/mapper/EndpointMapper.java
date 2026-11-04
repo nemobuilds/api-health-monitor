@@ -26,7 +26,7 @@ public class EndpointMapper {
                 .method(request.method())
                 .intervalSeconds(request.intervalSeconds())
                 .expectedStatus(request.expectedStatus())
-                .active(request.active())
+                .isActive(request.isActive())
                 .build();               // Lombok @Builder generates this for us
     }
 

@@ -11,6 +11,6 @@ public record EndpointRequestDto(
         String method,
         int intervalSeconds,
         int expectedStatus,
-        boolean active
+        boolean isActive
 ) {
 }

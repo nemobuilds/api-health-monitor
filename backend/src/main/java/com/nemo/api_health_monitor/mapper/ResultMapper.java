@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 public class ResultMapper {
 
 
-    public Result toDto(Result result) {
-        return new ResultResponseDto(
-                result.getId()
-        );
-    }
+//    public Result toDto(Result result) {
+//        return new ResultResponseDto(
+//                result.getId()
+//        );
+//    }
 }

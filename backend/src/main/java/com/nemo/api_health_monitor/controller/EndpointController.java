@@ -53,8 +53,6 @@ public class EndpointController {
         return ResponseEntity.ok(endpointService.listAllEndpoints());
     }
 
-
-
 //    POST   /api/endpoints          Register a new endpoint to monitor
     /**
      * Register a new endpoint

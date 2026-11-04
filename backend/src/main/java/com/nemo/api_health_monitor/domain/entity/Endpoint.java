@@ -57,7 +57,7 @@ public class Endpoint {
     private int expectedStatus;
 
     @Column(nullable = false)
-    private boolean active;
+    private boolean isActive;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
