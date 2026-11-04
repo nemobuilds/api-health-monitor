@@ -22,21 +22,14 @@ public class HealthCheckScheduler {
 
     @Scheduled(fixedDelay = 10_000)
     public void monitoredEndpoints() {
-//        List<Endpoint> endpoints = endpointRepository.findByIsActiveTrue();
-//
-//        // One caveat: a simple sequential loop can become slow if many endpoints time out. Later, you can introduce bounded concurrency, batching, and database pagination.
-//        for (Endpoint endpoint : endpoints) {
-//            if (isDue(endpoint)) {
-//                healthCheckService.checkEndpoint(endpoint);
-//            }
-//        }
+        System.out.println("Scheduler running: " + Instant.now());
 
         // finds due endpoints in the database
         List<Endpoint> dueEndpoints =
                 endpointRepository.findDueEndpoints(
                         Instant.now(),
                          // pagination for getting 5 endpoints at a time
-                         PageRequest.of(0, 5)
+                         PageRequest.of(0, 1)
                 );
 
         // loop through all (5) the dueEndpoints one by one and run healthCheckService:
@@ -44,8 +37,6 @@ public class HealthCheckScheduler {
             healthCheckService.checkEndpoint(endpoint);
         }
     }
-
-
 
     // Thread Count Control: how many jobs or threads will run check endpoint each time or like batch processing
 }
