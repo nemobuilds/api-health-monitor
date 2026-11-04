@@ -13,7 +13,9 @@ public class RestClientConfig {
     // Bean: Registers RestClient instance in Spring's application configuration
     @Bean
     // RestClient.builder constructs and configures the HTTP Client.
-    public RestClient restClient(RestClient.Builder builder) {
+    public RestClient restClient() {
+
+        RestClient.Builder builder = RestClient.builder();
 
         // Configure Request Factory
         SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();

@@ -31,12 +31,15 @@ public class HealthCheckScheduler {
 //            }
 //        }
 
+        // finds due endpoints in the database
         List<Endpoint> dueEndpoints =
                 endpointRepository.findDueEndpoints(
                         Instant.now(),
+                         // pagination for getting 5 endpoints at a time
                          PageRequest.of(0, 5)
                 );
 
+        // loop through all (5) the dueEndpoints one by one and run healthCheckService:
         for (Endpoint endpoint: dueEndpoints) {
             healthCheckService.checkEndpoint(endpoint);
         }

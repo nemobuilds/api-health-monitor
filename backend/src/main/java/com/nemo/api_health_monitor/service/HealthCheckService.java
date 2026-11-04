@@ -11,8 +11,6 @@ import org.springframework.web.client.RestClientException;
 public class HealthCheckService {
     /* TODO:
      * 1. Learn synchronous RestClient first, then add concurrency using an ExecutorService or Spring's @Async when you need it.
-     * 2.  Record Timestamps before and after the request --> use System.nanoTime() for elapsed duration
-     * 3. Add error handling: RestClient throws exception for 4xx/5xx errors by default.
      */
 
     private final RestClient restClient;
@@ -63,7 +61,6 @@ public class HealthCheckService {
             System.out.println("Status: " + statusCode);
 
             result.setStatus_code(statusCode);
-
             // Compare actual status with expected status
             result.set_up(statusCode == expectedStatus);
 
