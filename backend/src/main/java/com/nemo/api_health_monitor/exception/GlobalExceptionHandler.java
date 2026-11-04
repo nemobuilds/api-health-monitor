@@ -5,7 +5,7 @@ import org.springframework.http.ProblemDetail;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -60,7 +60,7 @@ public class GlobalExceptionHandler {
     private ProblemDetail createProblemDetail(HttpStatus status, String message) {
         var detail = ProblemDetail.forStatusAndDetail(status, message);
         detail.setTitle(status.getReasonPhrase());
-        detail.setProperty("timestamp", LocalDateTime.now().toString());
+        detail.setProperty("timestamp", Instant.now().toString());
         return detail;
     }
 }

@@ -12,7 +12,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -60,17 +59,17 @@ public class Endpoint {
     private boolean isActive;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 
     @Column
-    private LocalDateTime lastCheckedAt;
+    private Instant lastCheckedAt;
 
-    @Column
+    @Column(nullable = false)
     private Instant nextCheckAt;
 
     @PrePersist
     protected void onCreate() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = Instant.now();
     }
 
 }

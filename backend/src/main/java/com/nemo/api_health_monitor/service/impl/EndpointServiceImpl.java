@@ -12,6 +12,7 @@ import com.nemo.api_health_monitor.service.EndpointService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -63,6 +64,10 @@ public class EndpointServiceImpl implements EndpointService {
             );
         }
         Endpoint endpoint = endpointMapper.toEntity(request);
+        endpoint.setNextCheckAt(
+                Instant.now().plusSeconds(endpoint.getIntervalSeconds())
+        );
+
         endpoint = endpointRepository.save(endpoint);
 
         return endpointMapper.toDto(endpoint);

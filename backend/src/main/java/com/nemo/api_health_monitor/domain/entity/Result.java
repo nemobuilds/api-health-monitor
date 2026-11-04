@@ -3,7 +3,7 @@ package com.nemo.api_health_monitor.domain.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 //id                UUID, primary key
@@ -40,7 +40,7 @@ public class Result {
     private boolean is_up;
 
     @Column(nullable = false)
-    private LocalDateTime checked_at; // changes when someone check the result
+    private Instant checked_at; // changes when someone check the result
 
     @Column
     private String error_message;

@@ -1,6 +1,6 @@
 package com.nemo.api_health_monitor.domain.dto;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 public record EndpointResponseDto(
@@ -11,7 +11,9 @@ public record EndpointResponseDto(
     int intervalSeconds,
     int expectedStatus,
     boolean isActive,
-    LocalDateTime createdAt
+    Instant createdAt,
+    Instant lastCheckedAt,
+    Instant nextCheckAt
 ) {
 
 }
