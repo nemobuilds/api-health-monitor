@@ -8,9 +8,15 @@ import org.springframework.stereotype.Component;
 public class ResultMapper {
 
 
-//    public Result toDto(Result result) {
-//        return new ResultResponseDto(
-//                result.getId()
-//        );
-//    }
+    public ResultResponseDto toDto(Result result) {
+        return new ResultResponseDto(
+                result.getId(),
+                result.getEndpoint().getId(),
+                result.getStatus_code(),
+                result.getResponse_time_ms(),
+                result.is_up(),
+                result.getError_message(),
+                result.getChecked_at()
+        );
+    }
 }
