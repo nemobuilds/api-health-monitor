@@ -69,11 +69,14 @@ public class HealthCheckService {
         // 7. Build CheckResult entity
         result.setEndpoint(endpoint);
 
+        // Update the lastCheckedAt & nextCheckAt
+        Instant checkedAt = Instant.now();
+        result.setChecked_at(checkedAt);
+
         // 8. Save using CheckResultRepository
         resultsRepository.save(result);
 
-        // Update the lastCheckedAt & nextCheckAt
-        Instant checkedAt = Instant.now();
+
         endpoint.setLastCheckedAt(checkedAt);
         endpoint.setNextCheckAt(checkedAt.plusSeconds(endpoint.getIntervalSeconds()));
 

@@ -39,7 +39,7 @@ public class Result {
     @Column(nullable = false)
     private boolean is_up;
 
-    @Column(nullable = false)
+    @Column
     private Instant checked_at; // changes when someone check the result
 
     @Column

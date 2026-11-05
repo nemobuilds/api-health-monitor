@@ -5,11 +5,12 @@ import com.nemo.api_health_monitor.repository.EndpointRepository;
 import com.nemo.api_health_monitor.service.HealthCheckService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.List;
 
-
+@Component
 public class HealthCheckScheduler {
     // Query Active Endpoints
     private final HealthCheckService healthCheckService;
